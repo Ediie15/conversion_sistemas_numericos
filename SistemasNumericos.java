@@ -4,9 +4,16 @@ public class SistemasNumericos {
 	public static void main(String[] args) {
 		
 		String numeroStr = JOptionPane.showInputDialog(null, "Ingrese un número decimal:");
-		int numeroDecimal = Integer.parseInt(numeroStr); 
-		System.out.println("numeroDecimal = "+ numeroDecimal);
 		
+		int numeroDecimal = 0;
+		try {
+			numeroDecimal = Integer.parseInt(numeroStr);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null,"Error debe ingresar un número entero");
+			main(args);
+			System.exit(0);
+		}
+		System.out.println("numero decimal = "+ numeroDecimal );
 		System.out.println("numero binario de "+ numeroDecimal + " = " + Integer.toBinaryString(numeroDecimal));
 		
 		int numeroBinario = 0b111110100;
